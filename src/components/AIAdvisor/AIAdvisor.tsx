@@ -3,7 +3,6 @@ import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { Input } from "@/components/ui/input";
 import { Sparkles, Send, Bot } from "lucide-react";
 import { toast } from "sonner";
 
@@ -29,8 +28,8 @@ const AIAdvisor = () => {
     setLoading(true);
 
     try {
-      // Call Gemini API
-      const response = await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent", {
+      // Call updated Gemini API endpoint
+      const response = await fetch("https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -39,7 +38,6 @@ const AIAdvisor = () => {
         body: JSON.stringify({
           contents: [
             {
-              role: "user",
               parts: [
                 {
                   text: "You are an AI energy trading advisor for EnergiX platform. Answer questions about renewable energy trading, market trends, and optimization strategies. Keep responses brief and focused on energy markets. Now respond to this query: " + userMessage.content,
@@ -56,6 +54,10 @@ const AIAdvisor = () => {
 
       const data = await response.json();
       
+      if (data.error) {
+        throw new Error(data.error.message || "API Error");
+      }
+      
       if (data.candidates && data.candidates[0]?.content?.parts[0]?.text) {
         const aiMessage: Message = {
           role: "assistant",
@@ -63,7 +65,7 @@ const AIAdvisor = () => {
         };
         setMessages((prev) => [...prev, aiMessage]);
       } else {
-        throw new Error("Invalid response from AI");
+        throw new Error("Invalid response format from AI");
       }
     } catch (error) {
       console.error("Error calling Gemini API:", error);
