@@ -49,6 +49,13 @@ const EnergyWallet = () => {
   // Mock data for wallet usage
   const walletUsage = 65; // percentage
 
+  // Determine progress color based on usage percentage
+  const getProgressColor = () => {
+    if (walletUsage < 30) return "bg-energy-green";
+    if (walletUsage < 70) return "bg-energy-blue";
+    return "bg-orange-500";
+  };
+
   return (
     <GlassCard className="h-full flex flex-col">
       <div className="flex justify-between items-start mb-6">
@@ -86,11 +93,10 @@ const EnergyWallet = () => {
           <span className="text-xs text-foreground/70">Wallet Usage</span>
           <span className="text-xs font-medium">{walletUsage}%</span>
         </div>
-        <Progress value={walletUsage} className="h-1.5 bg-muted" indicatorClassName={cn(
-          walletUsage < 30 ? "bg-energy-green" : 
-          walletUsage < 70 ? "bg-energy-blue" : 
-          "bg-orange-500"
-        )} />
+        <Progress 
+          value={walletUsage} 
+          className={cn("h-1.5 bg-muted", getProgressColor())}
+        />
       </div>
 
       <div className="flex-grow">
