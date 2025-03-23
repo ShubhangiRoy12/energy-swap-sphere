@@ -9,13 +9,13 @@ const Footer = () => {
           <div className="space-y-4">
             <Link to="/" className="flex items-center space-x-2">
               <div className="w-8 h-8 rounded-full bg-gradient-to-r from-energy-blue to-energy-green flex items-center justify-center">
-                <span className="sr-only">Energy Swap</span>
+                <span className="sr-only">EnergiX</span>
                 <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                   <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
                 </svg>
               </div>
               <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-energy-blue-light via-energy-blue to-energy-green">
-                Energy Swap
+                EnergiX
               </span>
             </Link>
             <p className="text-sm text-foreground/70">
@@ -26,7 +26,7 @@ const Footer = () => {
           <div>
             <h3 className="text-sm font-semibold text-foreground mb-4">Platform</h3>
             <ul className="space-y-2">
-              <li><Link to="/" className="text-sm text-foreground/70 hover:text-energy-blue-light transition-colors">Dashboard</Link></li>
+              <li><Link to="/dashboard" className="text-sm text-foreground/70 hover:text-energy-blue-light transition-colors">Dashboard</Link></li>
               <li><Link to="/marketplace" className="text-sm text-foreground/70 hover:text-energy-blue-light transition-colors">Marketplace</Link></li>
               <li><Link to="/wallet" className="text-sm text-foreground/70 hover:text-energy-blue-light transition-colors">Wallet</Link></li>
               <li><Link to="/analytics" className="text-sm text-foreground/70 hover:text-energy-blue-light transition-colors">Analytics</Link></li>
@@ -56,7 +56,7 @@ const Footer = () => {
         
         <div className="mt-8 pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
           <p className="text-xs text-foreground/60">
-            &copy; {new Date().getFullYear()} Energy Swap. All rights reserved.
+            &copy; {new Date().getFullYear()} EnergiX. All rights reserved.
           </p>
           <div className="flex space-x-6">
             <a href="#" className="text-foreground/60 hover:text-energy-blue-light transition-colors">

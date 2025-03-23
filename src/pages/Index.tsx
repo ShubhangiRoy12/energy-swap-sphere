@@ -11,7 +11,7 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Energy Swap | AI-Powered Energy Marketplace</title>
+        <title>EnergiX | AI-Powered Energy Marketplace</title>
       </Helmet>
       <div className="flex flex-col min-h-screen bg-background">
         <Navbar />
