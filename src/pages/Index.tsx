@@ -6,6 +6,7 @@ import EnergyWallet from "@/components/Dashboard/EnergyWallet";
 import TradingInsights from "@/components/Dashboard/TradingInsights";
 import MarketplacePreview from "@/components/Dashboard/MarketplacePreview";
 import EnergyStats from "@/components/Dashboard/EnergyStats";
+import AIAdvisor from "@/components/AIAdvisor/AIAdvisor";
 
 const Index = () => {
   return (
@@ -49,6 +50,9 @@ const Index = () => {
           </div>
         </main>
         <Footer />
+        
+        {/* AI Advisor Floating Action Button */}
+        <AIAdvisor />
       </div>
     </>
   );
