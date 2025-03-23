@@ -28,8 +28,8 @@ const AIAdvisor = () => {
     setLoading(true);
 
     try {
-      // Call updated Gemini API endpoint
-      const response = await fetch("https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent", {
+      // Using the newer Gemini-1.5-pro model which is supported in the API
+      const response = await fetch("https://generativelanguage.googleapis.com/v1/models/gemini-1.5-pro:generateContent", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
